@@ -1,0 +1,11 @@
+[run]
+source =
+    cfgmgr
+[report]
+omit =
+    #versioning
+    .*version.*
+    *_version.py
+    #tests
+    *test*
+    cfgmgr/tests/*

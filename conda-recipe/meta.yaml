@@ -1,0 +1,35 @@
+{% set package_name = "cfgmgr" %}
+{% set import_name = "cfgmgr" %}
+{% set version = load_file_regex(load_file=os.path.join(import_name, "_version.py"), regex_pattern=".*version = '(\S+)'").group(1) %}
+
+package:
+  name: {{ package_name }}
+  version: {{ version }}
+
+source:
+  path: ..
+
+build:
+  number: 0
+  noarch: python
+  script: {{ PYTHON }} -m pip install . -vv
+
+requirements:
+  build:
+    - python >=3.9
+    - pip
+    - setuptools_scm
+  run:
+    - python >=3.9
+
+test:
+  imports:
+    - {{ import_name }}
+  requires:
+    - pytest
+
+about:
+  home: https://github.com/pcdshub/cfgmgr
+  license: LicenseRef-BSD-3-Clause-SLAC
+  license_family: BSD
+  summary: Configuration manager for LCLS EPICS PVs and devices.
