@@ -10,6 +10,11 @@ cfgmgr
 
 Configuration manager for LCLS EPICS PVs and devices.
 
+.. note::
+
+    This is very much a work in progress.  Do not expect anything from
+    this for quite a long time.
+
 Requirements
 ------------
 
